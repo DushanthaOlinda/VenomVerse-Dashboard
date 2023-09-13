@@ -1,13 +1,13 @@
 "use client";
 import React, {useContext} from "react";
-import MainHeader from "@/components/MainHeader";
+import MainHeader from "/components/MainHeader";
 import Link from "next/link";
 import {AiOutlineHome} from "react-icons/ai"
 import {GrProjects} from "react-icons/gr"
 import {FaAngleRight, FaCheck, FaCheckDouble} from "react-icons/fa"
 import {SiHelpscout} from "react-icons/si"
 import {FiPhoneCall} from "react-icons/fi"
-import {MenuContext} from "@/context/MenuContext";
+import {MenuContext} from "/context/MenuContext";
 
 const MainLayout = ({children}) => {
     const {open} = useContext(MenuContext);

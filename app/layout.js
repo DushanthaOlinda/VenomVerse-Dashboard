@@ -1,7 +1,7 @@
 import './globals.css'
-import MainLayout from "@/components/MainLayout";
+import MainLayout from "/components/MainLayout";
 import React from "react";
-import MenuContextProvider from "@/context/MenuContext";
+import MenuContextProvider from "/context/MenuContext";
 
 
 export const metadata = {
