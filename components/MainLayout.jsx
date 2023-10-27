@@ -1,51 +1,59 @@
 "use client";
 import React, {useContext} from "react";
-import MainHeader from "@/components/MainHeader";
+import MainHeader from "/components/MainHeader";
 import Link from "next/link";
-import {AiOutlineHome} from "react-icons/ai"
-import {GrProjects} from "react-icons/gr"
-import {FaAngleRight, FaCheck, FaCheckDouble} from "react-icons/fa"
-import {SiHelpscout} from "react-icons/si"
+import {AiOutlineHome, AiOutlineLogout} from "react-icons/ai"
+import {FaAngleRight} from "react-icons/fa"
+import {SiHelpscout } from "react-icons/si"
 import {FiPhoneCall} from "react-icons/fi"
-import {MenuContext} from "@/context/MenuContext";
+import {MenuContext} from "/context/MenuContext";
+import {MdManageAccounts} from "react-icons/md"
+import {BiSolidReport} from "react-icons/bi"
+import {FaHistory} from "react-icons/fa"
 
 const MainLayout = ({children}) => {
     const {open} = useContext(MenuContext);
     return (
-        <div className={"bg-gray-100 w-screen min h-screen"}>
+        <div className={"bg-gray-100 w-screen min h-screen p-4 "}>
             <MainHeader />
-            <div className= "flex justify-start items-start ">
+            <div className= " justify-start items-start pt-10 ">
                 {/*<aside className= "bg-white rounded-lg w-60 p-4">*/}
-                <aside className={`bg-white rounded-lg overflow-hidden transition-all duration-200 ${
-                    open ? "w-60 p-4" : "w-0"
-                } lg:w-60 lg:p-4 `}>
-                    <ul>
-                        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                <aside className={`fixed mt-10 bg-green-800 text-green-100 rounded-lg overflow-hidden lg:w-60 lg:p-4 h-screen`}>
+                    <ul className="py-3">
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
                             <AiOutlineHome className="mr-2" />
-                            <Link href=" / ">Home</Link>
-                        </li>
-                        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
-                            <GrProjects className="mr-2" />
-                            <h3 className="flex-1">Projects</h3>
+                            <Link href={" /dashboard "} className="flex-1">Dashboard</Link>
                             <FaAngleRight />
                         </li>
-                        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
-                            <FaCheck className="mr-2" />
-                            <h3 className="flex-1">Singular</h3>
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
+                            <MdManageAccounts className="mr-2" />
+                            <Link href="/accounts" className="flex-1">Profiles</Link>
                             <FaAngleRight />
                         </li>
-                        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
-                            <FaCheckDouble className="mr-2" />
-                            <h3 className="flex-1">Complex</h3>
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
+                            <BiSolidReport className="mr-2" />
+                            <Link href="/reports" className="flex-1">Reports</Link>
+                            <faAngleRight />
+                        </li>
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
+                            <FaHistory className="mr-2" />
+                            <Link href="/quiz" className="flex-1">Quiz History</Link>
                             <FaAngleRight />
                         </li>
-                        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
                             <SiHelpscout className="mr-2" />
-                            <Link href="/about-us">About Us</Link>
+                            <Link href="/about-us" className="flex-1">About Us</Link>
+                            <FaAngleRight />
                         </li>
-                        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
                             <FiPhoneCall className="mr-2" />
-                            <Link href="/contact-us">Contact Us</Link>
+                            <Link href="/contact-us" className="flex-1">Contact Developers</Link>
+                            <FaAngleRight />
+                        </li>
+                        <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
+                            <AiOutlineLogout className="mr-2" />
+                            <Link href="/" className="flex-1">Log out</Link>
+                            <FaAngleRight />
                         </li>
                     </ul>
                 </aside>
