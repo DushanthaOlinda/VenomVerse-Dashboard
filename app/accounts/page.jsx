@@ -1,8 +1,8 @@
 "use client"
 import React, {useEffect} from "react";
 import Accounts from "/components/accounts";
-// import users from "/components/user";
 import {axiosClient} from "/app/services/axiosClient";
+import SearchBar from "/components/search";
 
 const Profiles = () =>{
     const [users, setUsers] = React.useState([]);
@@ -35,6 +35,7 @@ const Profiles = () =>{
             <div className={"pl-64 pt-10"}>
             <div className="bg-white rounded-lg ">
                 <h1 className="text-3xl font-semibold ml-6 pt-4 mb-4">User Accounts</h1>
+                <SearchBar />
                 <div className="overflow-y-auto" style={{ maxHeight: "900px" }}>
                     {/*<Accounts users={res}/>*/}
                     <Accounts users={users}/>
