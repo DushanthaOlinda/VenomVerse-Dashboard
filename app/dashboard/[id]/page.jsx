@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { axiosClient } from "/app/services/axiosClient";
 import Link from "next/link";
 
-export function UserDetail({ params }) {
+export function userDetail({ params }) {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -201,4 +201,4 @@ export function UserDetail({ params }) {
     );
 }
 
-export default UserDetail;
+export default userDetail;
