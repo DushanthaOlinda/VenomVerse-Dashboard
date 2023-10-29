@@ -10,12 +10,15 @@ import {MenuContext} from "/context/MenuContext";
 import {MdManageAccounts} from "react-icons/md"
 import {BiSolidReport} from "react-icons/bi"
 import {FaHistory} from "react-icons/fa"
+import {GiArtificialHive} from "react-icons/gi";
 
 const MainLayout = ({children}) => {
     const {open} = useContext(MenuContext);
     return (
         <div className={"bg-gray-100 w-screen min h-screen p-4 "}>
-            <MainHeader />
+            <nav className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
+                <MainHeader />
+            </nav>
             <div className= " justify-start items-start pt-10 ">
                 {/*<aside className= "bg-white rounded-lg w-60 p-4">*/}
                 <aside className={`fixed mt-10 bg-green-800 text-green-100 rounded-lg overflow-hidden lg:w-60 lg:p-4 h-screen`}>
@@ -33,7 +36,7 @@ const MainLayout = ({children}) => {
                         <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
                             <BiSolidReport className="mr-2" />
                             <Link href="/reports" className="flex-1">Reports</Link>
-                            <faAngleRight />
+                            <FaAngleRight />
                         </li>
                         <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
                             <FaHistory className="mr-2" />
@@ -41,13 +44,13 @@ const MainLayout = ({children}) => {
                             <FaAngleRight />
                         </li>
                         <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
-                            <SiHelpscout className="mr-2" />
-                            <Link href="/about-us" className="flex-1">About Us</Link>
+                            <GiArtificialHive className="mr-2" />
+                            <Link href="/model" className="flex-1">Model Info</Link>
                             <FaAngleRight />
                         </li>
                         <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">
-                            <FiPhoneCall className="mr-2" />
-                            <Link href="/contact-us" className="flex-1">Contact Developers</Link>
+                            <SiHelpscout className="mr-2" />
+                            <Link href="/about-us" className="flex-1">About Us</Link>
                             <FaAngleRight />
                         </li>
                         <li className="flex justify-start items-center hover:bg-green-300 hover:text-green-800 rounded-xl p-2">

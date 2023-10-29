@@ -29,17 +29,13 @@ const Profiles = () =>{
 
 
 
-    // UserData = res;
-
         return(
             <div className={"pl-64 pt-10"}>
             <div className="bg-white rounded-lg ">
                 <h1 className="text-3xl font-semibold ml-6 pt-4 mb-4">User Accounts</h1>
                 <SearchBar />
-                <div className="overflow-y-auto" style={{ maxHeight: "900px" }}>
-                    {/*<Accounts users={res}/>*/}
-                    <Accounts users={users}/>
-                    {/*{console.log(users)}*/}
+                <div className="overflow-y-auto flex w-full" style={{ maxHeight: "900px"}}>
+                    <Accounts users={users} className="w-1/2"/>
                 </div>
             </div>
             </div>
