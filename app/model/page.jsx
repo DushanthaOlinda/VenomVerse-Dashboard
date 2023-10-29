@@ -25,6 +25,8 @@ const AboutPage = () => {
                         <div className="flex">
                             <Image
                                 src={member.scannedImageMedia}
+                                width={200}
+                                height={200}
                                 alt={member.scannedSerpentName}
                                 className="w-full h-auto transition duration-300 hover:backdrop-filter-none hover:grayscale-0"
                             />
