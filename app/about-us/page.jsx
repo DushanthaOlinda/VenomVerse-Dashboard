@@ -1,6 +1,7 @@
 // pages/about.js
 
 import React from 'react';
+import Image from "next/image";
 
 const teamMembers = [
     {
@@ -43,7 +44,7 @@ const AboutPage = () => {
                 {teamMembers.map((member, index) => (
                     <div key={index} className="border border-gray-300 p-6 rounded-lg">
                         <div className="relative">
-                            <img
+                            <Image
                                 src={member.photo}
                                 alt={member.name}
                                 className="w-full h-auto transition duration-300 hover:backdrop-filter-none hover:grayscale-0"
