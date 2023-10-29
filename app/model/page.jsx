@@ -2,6 +2,7 @@
 "use client";
 import React, {useEffect} from 'react';
 import {axiosClient} from "/app/services/axiosClient";
+import Image from "next/image";
 
 
 const AboutPage = () => {
@@ -22,7 +23,7 @@ const AboutPage = () => {
                 {pics.map((member, index) => (
                     <div key={index} className="border border-gray-300 p-2 rounded-lg w-full">
                         <div className="flex">
-                            <img
+                            <Image
                                 src={member.scannedImageMedia}
                                 alt={member.scannedSerpentName}
                                 className="w-full h-auto transition duration-300 hover:backdrop-filter-none hover:grayscale-0"
