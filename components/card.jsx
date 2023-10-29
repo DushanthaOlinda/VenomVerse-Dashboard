@@ -3,11 +3,10 @@ import React from 'react';
 
 const Card = ({ title, description}) => {
     return (
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden p-2 m-2 max-w-screen-md ">
-            {/*<Image src={imageUrl} alt={title} className="w-full h-40 object-cover object-center" width={800} height={800}/>*/}
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden p-2 m-2 max-w-screen-md items-center text-center">
             <div className="p-4" style={{ maxHeight: '200px', overflowY: 'auto' }}>
                 <h2 className="text-xl font-semibold mb-2">{title}</h2>
-                <p className="text-gray-600">{description}</p>
+                <h2 className="text-3xl font-semibold mb-2">{description}</h2>
             </div>
         </div>
     );

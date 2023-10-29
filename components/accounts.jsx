@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Accounts = ({ users }) => {
     return (
-        <div className="bg-white p-4 shadow-md rounded-md">
-            <ul>
+        <div className="bg-white p-5 w-full flex shadow-md rounded-md">
+            <div className="flex w-full flex-wrap">
                 {users.map((user) => (
-                    <li key={user.userId} className="mb-2">
+                    <div key={user.userId} className="mb-2 w-1/5">
                         <Link href={`/dashboard/${user.userId}`} className="flex justify-start items-center hover:bg-green-50 hover:text-green-800 rounded-xl p-2">
                             {/*<img*/}
                             {/*    src={user.avatar}*/}
@@ -20,9 +20,9 @@ const Accounts = ({ users }) => {
                                 <p className="text-gray-600">{user.userEmail}</p>
                             </div>
                         </Link>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { axiosClient } from "/app/services/axiosClient";
+import Link from "next/link";
 
 export function UserDetail({ params }) {
     const [user, setUser] = useState(null);
@@ -141,6 +142,7 @@ export function UserDetail({ params }) {
             <div className="bg-white p-4 shadow-md rounded-md">
                 <div className="flex justify-start items-center rounded-xl p-2">
                     <div className={"p-4 m-2 text-xl"}>
+                        <Link href={'/accounts'}>Back</Link>
                         <h3 className="pl-96 text-4xl font-semibold text-green-800">
                             FullName: {firstName} {lastName}
                         </h3>
