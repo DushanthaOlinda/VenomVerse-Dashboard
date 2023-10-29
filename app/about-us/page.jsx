@@ -44,7 +44,7 @@ const AboutPage = () => {
                 {teamMembers.map((member, index) => (
                     <div key={index} className="border border-gray-300 p-6 rounded-lg">
                         <div className="relative">
-                            <Image
+                            <Image width={300} height={300}
                                 src={member.photo}
                                 alt={member.name}
                                 className="w-full h-auto transition duration-300 hover:backdrop-filter-none hover:grayscale-0"
