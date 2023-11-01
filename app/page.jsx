@@ -1,80 +1,72 @@
 "use client";
 // components/Login.js
 import React, { useState } from 'react';
+import MainHeader from "/components/MainHeader";
+import Image from "next/image";
+import {getIsAuthenticated, setIsAuthenticated} from "/app/auth";
+
+console.log(getIsAuthenticated());
 
 function goToAdminPanel() {
+    setIsAuthenticated(true);
+    console.log(getIsAuthenticated());
     window.location.href = '/dashboard';
 }
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [Email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const inputStyle = {
-        width: '100%',
-        padding: '10px',
-        marginBottom: '10px',
-        borderRadius: '5px',
-        border: '1px solid #ccc',
-    };
-
-    const buttonStyle = {
-        width: '100%',
-        padding: '10px',
-        backgroundColor: '#0070f3',
-        color: 'white',
-        borderRadius: '5px',
-        border: 'none',
-        cursor: 'pointer',
-    };
-
-    const errorStyle = {
-        color: 'red',
-    };
+    const inputClass = "w-full p-2 mb-2 rounded border border-emerald-300 focus:outline-none focus:border-emerald-700";
+    const buttonClass = "w-full p-2 bg-emerald-600 text-white rounded cursor-pointer hover:bg-emerald-800 transition duration-200 text-center";
+    const errorClass = "text-red-500";
 
     const handleLogin = () => {
-        if (username === 'admin' && password === 'password') {
-            // Successful login, you can navigate to the admin panel here.
+        if (Email === 'admin' && password === '123456') {
             goToAdminPanel();
-            alert('Login successful');
+            // alert('Login successful');
         } else {
             setError('Invalid username or password');
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-                <h1 className="text-2xl font-semibold mb-4">Login</h1>
-                {error && <p style={errorStyle}>{error}</p>}
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    style={inputStyle}
-                    className="w-full"
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    style={inputStyle}
-                    className="w-full mt-2"
-                />
-                <button
-                    onClick={handleLogin}
-                    style={buttonStyle}
-                    className="w-full mt-4"
-                >
-                    Login
-                </button>
+        <div>
+            <MainHeader />
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="bg-white p-8 rounded-lg shadow-md">
+                    <Image width={300} height={300}
+                           src={'/images/LOGO.png'}
+                           alt={"Logo"}
+                           className="items-center w-1/2 p-2.5 ml-28 h-auto"
+                    />
+                    <h1 className="text-2xl font-semibold mb-4 text-emerald-700">Login</h1>
+                    {error && <p className={errorClass}>{error}</p>}
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={Email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={inputClass}
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className={`${inputClass} mt-2`}
+                    />
+                    <button
+                        onClick={handleLogin}
+                        className={`${buttonClass} mt-4`}
+                    >
+                        Login
+                    </button>
+                </div>
             </div>
         </div>
     );
 };
 
 export default Login;
-
