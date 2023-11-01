@@ -14,8 +14,3 @@ export const setIsAuthenticated = (value) => {
 export const getIsAuthenticated = () => {
     return localStorage.getItem(AUTH_STORAGE_KEY);
 };
-
-// Function to clear the authentication status from localStorage (logout)
-export const clearAuthentication = () => {
-    localStorage.removeItem(AUTH_STORAGE_KEY);
-};

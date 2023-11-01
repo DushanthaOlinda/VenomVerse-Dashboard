@@ -6,14 +6,14 @@ import {axiosClient} from "/app/services/axiosClient";
 import PieChart from "/components/piChart";
 import {getIsAuthenticated} from "/app/auth";
 
-// console.log(getIsAuthenticated());
-//
-// if (getIsAuthenticated() === false) {
-//     window.location.href = '/'; // Redirect to the login page
-// }
-// else{
-//     console.log("Authenticated");
-// }
+console.log(getIsAuthenticated());
+
+if (getIsAuthenticated() === false) {
+    window.location.href = '/'; // Redirect to the login page
+}
+else{
+    console.log("Authenticated");
+}
 
 const Homepage = () => {
 

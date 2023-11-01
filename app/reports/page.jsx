@@ -5,11 +5,11 @@ import {groupBy} from "lodash";
 import Image from "next/image";
 
 const Reports = () => {
-
     const [activeTab, setActiveTab] = useState("catcherReport"); // Initial active tab
     const [users, setUsers] = useState([]);
     const [catcherDetails, setCatcherDetails] = useState([]);
     const [userPosts, setUserPosts] = useState([]);
+    const [userFeedback, setUserFeedback] = useState([]);
 
     useEffect(() => {
         axiosClient.get("/UserDetail").then((res) => {
@@ -28,6 +28,12 @@ const Reports = () => {
         axiosClient.get("/api/CommunityPost").then((res) => {
             // console.log(res.data);
             setUserPosts(res.data);
+        });
+    }, []);
+    useEffect(() => {
+        axiosClient.get("/SystemFeedback").then((res) => {
+            // console.log(res.data);
+            setUserFeedback(res.data);
         });
     }, []);
 
@@ -79,7 +85,7 @@ const Reports = () => {
     return (
         <div className="pl-64 pt-10">
             <div className="w-auto">
-                <ul className="space-y-2 columns-2">
+                <ul className="space-y-2 columns-3">
                     <li
                         className={`${
                             activeTab === "catcherReport" ? "bg-emerald-500" : "bg-emerald-700"
@@ -95,6 +101,14 @@ const Reports = () => {
                         onClick={() => handleTabSelect("usersPosts")}
                     >
                         User Activity
+                    </li>
+                    <li
+                        className={`${
+                            activeTab === "feedback" ? "bg-emerald-500" : "bg-emerald-700"
+                        } p-2 rounded-lg cursor-pointer text-white`}
+                        onClick={() => handleTabSelect("feedback")}
+                    >
+                        Feedback
                     </li>
                 </ul>
             </div>
@@ -158,6 +172,31 @@ const Reports = () => {
                                             0
                                         )}{" "}
                                         Comments
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                {activeTab === "feedback" && (
+                    <div id="printTable">
+                        <h1 className="text-3xl font-semibold ml-6 pt-4 mb-4">Feedback Report</h1>
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                            {userFeedback.map((user) => (
+                                <div
+                                    key={user.applicationFeedbackId}
+                                    className="p-4 border rounded-lg shadow-md "
+                                >
+                                    <h2 className="text-lg font-semibold text-center">
+                                        {user.firstName} {user.lastName}
+                                    </h2>
+                                    {/* post count*/}
+                                    <p className="text-center text-sm text-gray-500">
+                                        Rating: {user.rating}%
+                                    </p>
+                                    {/*  Comments count*/}
+                                    <p className="text-center text-sm text-gray-500">
+                                       Feedback: {user.feedback}
                                     </p>
                                 </div>
                             ))}
