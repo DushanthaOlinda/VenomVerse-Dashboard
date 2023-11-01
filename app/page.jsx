@@ -3,13 +3,7 @@
 import React, { useState } from 'react';
 import MainHeader from "/components/MainHeader";
 import Image from "next/image";
-import {getIsAuthenticated, setIsAuthenticated} from "/app/auth";
-
-console.log(getIsAuthenticated());
-
 function goToAdminPanel() {
-    setIsAuthenticated(true);
-    console.log(getIsAuthenticated());
     window.location.href = '/dashboard';
 }
 
