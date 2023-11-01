@@ -31,7 +31,6 @@ const MainLayout = ({children}) => {
         window.location.href = "/about-us";
     };
     const logout = () => {
-        localStorage.setItem('isAuthenticated', 'true');
         window.location.href = "/";
     };
 
