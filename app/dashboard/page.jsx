@@ -4,8 +4,19 @@ import Card from "/components/card";
 import BarChart from "/components/chart";
 import {axiosClient} from "/app/services/axiosClient";
 import PieChart from "/components/piChart";
+import {getIsAuthenticated} from "/app/auth";
+
+// console.log(getIsAuthenticated());
+//
+// if (getIsAuthenticated() === false) {
+//     window.location.href = '/'; // Redirect to the login page
+// }
+// else{
+//     console.log("Authenticated");
+// }
 
 const Homepage = () => {
+
     const [users, setUsers] = React.useState([]);
     const [admin , setAdmin] = React.useState([]);
 
@@ -24,6 +35,7 @@ const Homepage = () => {
             setUsers(res.data);
         });
     }, []);
+
 
     const dummyData = [
         {
@@ -65,7 +77,7 @@ const Homepage = () => {
 
     return (
             <div className="ml-64 mt-10 bg-amber-100 text-black rounded-lg overflow-hidden max-w-screen ">
-                <h1 className="ml-3 text-2xl font-light font-sans underline uppercase">Dashboard</h1>
+                {/*<h1 className="ml-3 text-2xl font-light font-sans underline uppercase">Dashboard</h1>*/}
                 <div className="grid grid-cols-3 divide-x-2 m-5 ml-5" >
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden p-2 m-2 max-w-screen-md ">
                         <div className="p-4" style={{ maxHeight: '200px', overflowY: 'auto' }}>
@@ -96,7 +108,7 @@ const Homepage = () => {
                         <BarChart data={data} labels={labels}/>
                     </div>
                     <div className="bg-white h-2/3 p-4 w-96 ml-10 rounded-lg pb-56 ">
-                        <h1 className="text-3xl font-semibold mb-4">Pie Chart</h1>
+                        <h1 className="text-3xl font-semibold mb-4">Scanned Snakes</h1>
                         <PieChart data={data3} labels={labels3} />
                     </div>
                 </div>

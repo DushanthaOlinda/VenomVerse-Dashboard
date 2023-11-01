@@ -1,6 +1,7 @@
 import './globals.css'
 import React from "react";
 import MenuContextProvider from "/context/MenuContext";
+import MainHeader from "/components/MainHeader";
 
 
 export const metadata = {

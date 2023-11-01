@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 const Accounts = ({ users }) => {
     return (
@@ -8,11 +9,13 @@ const Accounts = ({ users }) => {
                 {users.map((user) => (
                     <div key={user.userId} className="mb-2 w-1/5">
                         <Link href={`/dashboard/${user.userId}`} className="flex justify-start items-center hover:bg-green-50 hover:text-green-800 rounded-xl p-2">
-                            {/*<img*/}
-                            {/*    src={user.avatar}*/}
-                            {/*    alt={`${user.firstName} ${user.lastName}`}*/}
-                            {/*    className="w-8 h-8 rounded-full mr-2"*/}
-                            {/*/>*/}
+                            <Image
+                                width={300}
+                                height={300}
+                                src={user.profileImage}
+                                alt={`${user.firstName} ${user.lastName}`}
+                                className="w-8 h-8 rounded-full mr-2"
+                            />
                             <div>
                                 <h3 className="text-lg font-semibold">
                                     {user.firstName} {user.lastName}
